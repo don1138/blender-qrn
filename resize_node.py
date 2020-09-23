@@ -22,7 +22,7 @@ bl_info = {
     "version": (1, 0),
     "blender": (2, 80, 0),
     "location": "Node Editor > Sidebar > Arrange",
-    "description": "Assign a Fixed Width to an Active Node",
+    "description": "Assign a Fixed Width to an Active Node in Shader Editor",
     "warning": "",
     "doc_url": "",
     "category": "Node",

@@ -4,7 +4,7 @@
 
 ![Blender QLE Screenshot](https://github.com/don1138/blender-qrn/blob/master/blender-qrn.jpg)
 
-In Blender 2.83, when adding a Node Wrangler Texture Setup, the Mapping Node comes in at 240 wide – much too fat – so I have to manually slim it down to 140 every 😖 single 😖 time 😖. I couldn't find a way to change the default width on this node and save it in the startup file, so I duplicated the Node Arrange addon and hacked it to make this.
+In **Blender 2.83**, when adding a **Node Wrangler Texture Setup**, the **Mapping Node** comes in at 240 wide – much too fat – so I have to manually slim it down to 140 every 😖 single 😖 time 😖. I couldn't find a way to change the default width on this node and save it in the startup file, so I duplicated the **Node Arrange** addon and hacked it to make this.
 
 *Seconds after writing the previous line, I realized I could just edit ``node_wrangler.py`` and solve my initial grief.* :facepalm:.
 

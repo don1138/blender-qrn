@@ -42,6 +42,7 @@ This addon pairs well with 3DSinghVFX's work-in-progress [**Align Nodes**](https
 
 **1.1**
   + Changed scope from **Active** to **All Selected**
+  + Added options for **540**, **640**, and **700**
   + Added Button for **Toggle Hidden Sockets**
 
 ***

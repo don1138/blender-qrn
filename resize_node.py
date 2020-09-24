@@ -17,15 +17,16 @@
 # ##### END GPL LICENSE BLOCK #####
 
 bl_info = {
-    "name": "Quick Resize Node",
-    "author": "Don Schnitzius",
-    "version": (1, 0),
-    "blender": (2, 80, 0),
-    "location": "Node Editor > Sidebar > Arrange",
-    "description": "Assign a Fixed Width to an Active Node in Shader Editor",
-    "warning": "",
-    "doc_url": "",
-    "category": "Node",
+    "name"       : "QRN (Quick Resize Node)",
+    "author"     : "Don Schnitzius",
+    "version"    : (1, 1),
+    "blender"    : (2, 80, 0),
+    "location"   : "Node Editor > Sidebar > Arrange",
+    "description": "Assign a Fixed Width to Selected Nodes",
+    "warning"    : "",
+    "wiki_url"   : "https://github.com/don1138/blender-qrn",
+    "support"    : "COMMUNITY",
+    "category"   : "Node",
 }
 
 
@@ -34,16 +35,33 @@ VERSION HISTORY
 
 1.0 – 20/09/22
     – Create Addon
+
+1.1 – 20/09/23
+    – Changed scope from Active to All Selected
+    – Added Button for Toggle Hidden Sockets
 """
 
 import bpy
 from bpy.types import Operator, Panel
 
+def get_active_tree(context):
+    tree = context.space_data.node_tree
+    path = []
+    if tree.nodes.active:
+        while tree.nodes.active != context.active_node:
+            tree = tree.nodes.active.node_tree
+            path.append(tree)
+    return tree, path
+
+def get_nodes_links(context):
+    tree, path = get_active_tree(context)
+    return tree.nodes, tree.links
+
 class RN_PT_NodePanel(Panel):
-    bl_label = "Resize Node"
-    bl_space_type = "NODE_EDITOR"
+    bl_label       = "Resize Nodes"
+    bl_space_type  = "NODE_EDITOR"
     bl_region_type = "UI"
-    bl_category = "Arrange"
+    bl_category    = "Arrange"
 
     def draw(self, context):
         if context.active_node is not None:
@@ -52,12 +70,23 @@ class RN_PT_NodePanel(Panel):
             node = context.space_data.node_tree.nodes.active
             layout.label(text="Set Node Width:")
             if node and node.select:
-                # Set Button Width
+
                 row = layout.row(align=True)
                 row.operator('node.button_140')
                 row.operator('node.button_240')
                 row.operator('node.button_340')
+
+                row = layout.row(align=True)
                 row.operator('node.button_440')
+                row.operator('node.button_540')
+                row.operator('node.button_640')
+
+                row = layout.row(align=True)
+                row.operator('node.button_700')
+
+                row = layout.row(align=True)
+                row.operator('node.button_toggle_hidden')
+
             else:
                 layout.label(text="(No Node Selected)", icon='GHOST_DISABLED')
 
@@ -65,33 +94,40 @@ class RN_OT__NodeButton140(Operator):
 
     'Set node width to 140'
     bl_idname = 'node.button_140'
-    bl_label = '140'
+    bl_label  = '140'
 
     def execute(self, context):
-        node = context.space_data.node_tree.nodes.active
-        node.width = 140
+        # node = context.space_data.node_tree.nodes.active
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 140
         return {'FINISHED'}
 
 class RN_OT__NodeButton240(Operator):
 
     'Set node width to 240'
     bl_idname = 'node.button_240'
-    bl_label = '240'
+    bl_label  = '240'
 
     def execute(self, context):
-        node = context.space_data.node_tree.nodes.active
-        node.width = 240
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 240
         return {'FINISHED'}
 
 class RN_OT__NodeButton340(Operator):
 
     'Set node width to 340'
     bl_idname = 'node.button_340'
-    bl_label = '340'
+    bl_label  = '340'
 
     def execute(self, context):
-        node = context.space_data.node_tree.nodes.active
-        node.width = 340
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 340
         return {'FINISHED'}
 
 class RN_OT__NodeButton440(Operator):
@@ -101,9 +137,61 @@ class RN_OT__NodeButton440(Operator):
     bl_label = '440'
 
     def execute(self, context):
-        node = context.space_data.node_tree.nodes.active
-        node.width = 440
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 440
         return {'FINISHED'}
+
+class RN_OT__NodeButton540(Operator):
+
+    'Set node width to 540'
+    bl_idname = 'node.button_540'
+    bl_label  = '540'
+
+    def execute(self, context):
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 540
+        return {'FINISHED'}
+
+class RN_OT__NodeButton640(Operator):
+
+    'Set node width to 640'
+    bl_idname = 'node.button_640'
+    bl_label  = '640'
+
+    def execute(self, context):
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 640
+        return {'FINISHED'}
+
+class RN_OT__NodeButton700(Operator):
+
+    'Set node width to 700'
+    bl_idname = 'node.button_700'
+    bl_label  = '700 (Max Width)'
+
+    def execute(self, context):
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 700
+        return {'FINISHED'}
+
+class RN_OT__NodeButtonHideToggle(Operator):
+
+    'Toggle Hidden Node Sockets'
+    bl_idname = 'node.button_toggle_hidden'
+    bl_label = 'Toggle Hidden Sockets (⌃H)'
+
+    def execute(self, context):
+        bpy.ops.node.hide_socket_toggle()
+        return {'FINISHED'}
+
 
 classes = [
     RN_PT_NodePanel,
@@ -111,6 +199,10 @@ classes = [
     RN_OT__NodeButton240,
     RN_OT__NodeButton340,
     RN_OT__NodeButton440,
+    RN_OT__NodeButton540,
+    RN_OT__NodeButton640,
+    RN_OT__NodeButton700,
+    RN_OT__NodeButtonHideToggle
 ]
 
 def register():

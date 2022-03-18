@@ -19,7 +19,7 @@
 bl_info = {
     "name"       : "QRN (Quick Resize Node)",
     "author"     : "Don Schnitzius",
-    "version"    : (1, 1),
+    "version"    : (1, 2),
     "blender"    : (2, 80, 0),
     "location"   : "Node Editor > Sidebar > Arrange",
     "description": "Assign a Fixed Width to Selected Nodes",
@@ -33,12 +33,15 @@ bl_info = {
 """
 VERSION HISTORY
 
-1.0 – 20/09/22
-    – Create Addon
+1.2 - 18/03/22
+    - Moved label "Set Node Width" inside IF statement
 
-1.1 – 20/09/23
-    – Changed scope from Active to All Selected
-    – Added Button for Toggle Hidden Sockets
+1.1 - 20/09/22
+    - Changed scope from Active to All Selected
+    - Added Button for Toggle Hidden Sockets
+
+1.0 - 20/09/22
+    - Create Addon
 """
 
 import bpy
@@ -66,10 +69,11 @@ class RN_PT_NodePanel(Panel):
     def draw(self, context):
         if context.active_node is not None:
             layout = self.layout
-            row = layout.row()
             node = context.space_data.node_tree.nodes.active
-            layout.label(text="Set Node Width:")
             if node and node.select:
+
+                row = layout.row(align=True)
+                row.label(text="Set Node Width:")
 
                 row = layout.row(align=True)
                 row.operator('node.button_140')

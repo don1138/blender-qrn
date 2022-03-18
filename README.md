@@ -26,8 +26,6 @@ Select one or more Nodes to activate the buttons.
 ### 👉 Toggle Hidden Sockets
   + Node height get maximized to show all sockets, or minimized to show only used/essential sockets.
 
-***
-
 ## Backstory
 
 In **Blender 2.83**, when adding a **Node Wrangler Texture Setup**, the **Mapping Node** comes in at 240 wide – much too fat – so I have to manually slim it down to 140 every 😖 single 😖 time 😖. I couldn't find a way to change the default width on this node and save it in the startup file, so I duplicated the **Node Arrange** addon and hacked it to make this.
@@ -45,9 +43,11 @@ This addon pairs well with 3DSinghVFX's work-in-progress [**Align Nodes**](https
   + Added options for **540**, **640**, and **700**
   + Added Button for **Toggle Hidden Sockets**
 
-***
+<br><br>
 
 <p align="center">
   <img align="center" src="https://badges.pufler.dev/created/don1138/blender-qrn?style=for-the-badge&colorA=222&colorB=48684b" alt="Repo Created">
   <img align="center" src="https://badges.pufler.dev/updated/don1138/blender-qrn?style=for-the-badge&colorA=222&colorB=48684b" alt="Repo Updated">
 </p>
+
+![Alt](https://repobeats.axiom.co/api/embed/351f5fa19ab389a826f0c22830d40fea54f1d7ca.svg "Repobeats analytics image")

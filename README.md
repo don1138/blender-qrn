@@ -1,8 +1,8 @@
-# Blender QRN
+# Blender QRN (Quick Resize Nodes)
 
 **Assign a Fixed Width to Selected Nodes.**
 
-![Blender QLE Screenshot](https://github.com/don1138/blender-qrn/blob/master/blender-qrn.jpg)
+![Blender QRN Screenshot](https://github.com/don1138/blender-qrn/blob/master/blender-qrn.jpg)
 
 ## Installation
 

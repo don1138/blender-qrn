@@ -49,8 +49,9 @@ This addon pairs well with 3DSinghVFX's work-in-progress [**Align Nodes**](https
 <br><br>
 
 <p align="center">
-  <img align="center" src="https://badges.pufler.dev/created/don1138/blender-qrn?style=for-the-badge&colorA=222&colorB=48684b" alt="Repo Created">
-  <img align="center" src="https://badges.pufler.dev/updated/don1138/blender-qrn?style=for-the-badge&colorA=222&colorB=48684b" alt="Repo Updated">
+  <img alt="GitHub latest commit" src="https://img.shields.io/github/last-commit/don1138/blender-qrn">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/don1138/blender-qrn">
+  <img alt="Github all releases" src="https://img.shields.io/github/downloads/don1138/blender-qrn/total.svg"><br>
+  <img src="https://repobeats.axiom.co/api/embed/351f5fa19ab389a826f0c22830d40fea54f1d7ca.svg" alt="Repobeats analytics image">
 </p>
 
-![Alt](https://repobeats.axiom.co/api/embed/351f5fa19ab389a826f0c22830d40fea54f1d7ca.svg "Repobeats analytics image")

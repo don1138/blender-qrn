@@ -2,7 +2,7 @@ bl_info = {
     "name": "Camera Overlays",
     "description": "Show/Hide Harmony and Golden Ratios and Triangles",
     "author": "Don Schnitzius",
-    "version": (1, 2, 0),
+    "version": (1, 2, 1),
     "blender": (2, 80, 0),
     "location": "Context Menu (Right Mouse Button)",
     "warning": "",
@@ -106,11 +106,7 @@ class CAMERA_SP_passepartout(bpy.types.Operator):
     def execute(self, context):
         ob = bpy.context.scene.camera.data
 
-        if ob.passepartout_alpha != 1:
-            ob.passepartout_alpha = 1
-        else:
-            ob.passepartout_alpha = 0.5
-
+        ob.passepartout_alpha = 1 if ob.passepartout_alpha != 1 else 0.5
         return {'FINISHED'}
 
 

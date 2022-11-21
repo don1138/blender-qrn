@@ -1,3 +1,4 @@
+import bpy
 bl_info = {
     "name": "Camera Overlays",
     "description": "Show/Hide Harmony and Golden Ratios and Triangles",
@@ -11,9 +12,6 @@ bl_info = {
     "support": "COMMUNITY",
     "category": "Camera",
 }
-
-
-import bpy
 
 
 class CAMERA_SCC_overlays(bpy.types.Operator):
@@ -120,9 +118,9 @@ classes = [
 
 def draw_inmenu(self, context):
     self.layout.separator()
-    self.layout.operator("camera.center_overlays", text="Center Overlays")
-    self.layout.operator("camera.golden_overlays", text="Golden Overlays")
-    self.layout.operator("camera.harmony_overlays", text="Harmony Overlays")
+    self.layout.operator("camera.center_overlays",     text="Center Overlays")
+    self.layout.operator("camera.golden_overlays",     text="Golden Overlays")
+    self.layout.operator("camera.harmony_overlays",    text="Harmony Overlays")
     self.layout.operator("camera.passepartout_toggle", text="Passepartout Toggle")
     self.layout.separator()
 

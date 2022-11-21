@@ -16,18 +16,23 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
+
 bl_info = {
-    "name"       : "QRN (Quick Resize Node)",
-    "author"     : "Don Schnitzius",
-    "version"    : (1, 2),
-    "blender"    : (2, 80, 0),
-    "location"   : "Node Editor > Sidebar > Arrange",
+    "name": "QRN (Quick Resize Node)",
+    "author": "Don Schnitzius",
+    "version": (1, 2),
+    "blender": (2, 80, 0),
+    "location": "Node Editor > Sidebar > Arrange",
     "description": "Assign a Fixed Width to Selected Nodes",
-    "warning"    : "",
-    "wiki_url"   : "https://github.com/don1138/blender-qrn",
-    "support"    : "COMMUNITY",
-    "category"   : "Node",
+    "warning": "",
+    "doc_url": "https://github.com/don1138/blender-qrn",
+    "support": "COMMUNITY",
+    "category": "Node",
 }
+
+
+from bpy.types import Operator, Panel
+import bpy
 
 
 """
@@ -44,8 +49,6 @@ VERSION HISTORY
     - Create Addon
 """
 
-import bpy
-from bpy.types import Operator, Panel
 
 def get_active_tree(context):
     tree = context.space_data.node_tree
@@ -56,15 +59,17 @@ def get_active_tree(context):
             path.append(tree)
     return tree, path
 
+
 def get_nodes_links(context):
     tree, path = get_active_tree(context)
     return tree.nodes, tree.links
 
+
 class RN_PT_NodePanel(Panel):
-    bl_label       = "Resize Nodes"
-    bl_space_type  = "NODE_EDITOR"
+    bl_label = "Resize Nodes"
+    bl_space_type = "NODE_EDITOR"
     bl_region_type = "UI"
-    bl_category    = "Arrange"
+    bl_category = "Arrange"
 
     def draw(self, context):
         if context.active_node is not None:
@@ -94,11 +99,12 @@ class RN_PT_NodePanel(Panel):
             else:
                 layout.label(text="(No Node Selected)", icon='GHOST_DISABLED')
 
+
 class RN_OT__NodeButton140(Operator):
 
     'Set node width to 140'
     bl_idname = 'node.button_140'
-    bl_label  = '140'
+    bl_label = '140'
 
     def execute(self, context):
         # node = context.space_data.node_tree.nodes.active
@@ -108,11 +114,12 @@ class RN_OT__NodeButton140(Operator):
                 node.width = 140
         return {'FINISHED'}
 
+
 class RN_OT__NodeButton240(Operator):
 
     'Set node width to 240'
     bl_idname = 'node.button_240'
-    bl_label  = '240'
+    bl_label = '240'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -121,11 +128,12 @@ class RN_OT__NodeButton240(Operator):
                 node.width = 240
         return {'FINISHED'}
 
+
 class RN_OT__NodeButton340(Operator):
 
     'Set node width to 340'
     bl_idname = 'node.button_340'
-    bl_label  = '340'
+    bl_label = '340'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -133,6 +141,7 @@ class RN_OT__NodeButton340(Operator):
             if node.select == True:
                 node.width = 340
         return {'FINISHED'}
+
 
 class RN_OT__NodeButton440(Operator):
 
@@ -147,11 +156,12 @@ class RN_OT__NodeButton440(Operator):
                 node.width = 440
         return {'FINISHED'}
 
+
 class RN_OT__NodeButton540(Operator):
 
     'Set node width to 540'
     bl_idname = 'node.button_540'
-    bl_label  = '540'
+    bl_label = '540'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -160,11 +170,12 @@ class RN_OT__NodeButton540(Operator):
                 node.width = 540
         return {'FINISHED'}
 
+
 class RN_OT__NodeButton640(Operator):
 
     'Set node width to 640'
     bl_idname = 'node.button_640'
-    bl_label  = '640'
+    bl_label = '640'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -173,11 +184,12 @@ class RN_OT__NodeButton640(Operator):
                 node.width = 640
         return {'FINISHED'}
 
+
 class RN_OT__NodeButton700(Operator):
 
     'Set node width to 700'
     bl_idname = 'node.button_700'
-    bl_label  = '700 (Max Width)'
+    bl_label = '700 (Max Width)'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -185,6 +197,7 @@ class RN_OT__NodeButton700(Operator):
             if node.select == True:
                 node.width = 700
         return {'FINISHED'}
+
 
 class RN_OT__NodeButtonHideToggle(Operator):
 
@@ -209,13 +222,16 @@ classes = [
     RN_OT__NodeButtonHideToggle
 ]
 
+
 def register():
     for c in classes:
         bpy.utils.register_class(c)
 
+
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
+
 
 if __name__ == "__main__":
     register()

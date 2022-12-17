@@ -17,26 +17,11 @@
 # ##### END GPL LICENSE BLOCK #####
 
 
-bl_info = {
-    "name": "QRN (Quick Resize Node)",
-    "author": "Don Schnitzius",
-    "version": (1, 2),
-    "blender": (2, 80, 0),
-    "location": "Node Editor > Sidebar > Arrange",
-    "description": "Assign a Fixed Width to Selected Nodes",
-    "warning": "",
-    "doc_url": "https://github.com/don1138/blender-qrn",
-    "support": "COMMUNITY",
-    "category": "Node",
-}
-
-
-from bpy.types import Operator, Panel
-import bpy
-
-
 """
 VERSION HISTORY
+
+1.2.1 - Code refactoring
+      - PEP8 formatting
 
 1.2 - 18/03/22
     - Moved label "Set Node Width" inside IF statement
@@ -48,6 +33,24 @@ VERSION HISTORY
 1.0 - 20/09/22
     - Create Addon
 """
+
+
+bl_info = {
+    "name"       : "QRN (Quick Resize Node)",
+    "author"     : "Don Schnitzius",
+    "version"    : (1, 2, 1),
+    "blender"    : (2, 80, 0),
+    "location"   : "Node Editor > Sidebar > Arrange",
+    "description": "Assign a Fixed Width to Selected Nodes",
+    "warning"    : "",
+    "doc_url"   : "https://github.com/don1138/blender-qrn",
+    "support"    : "COMMUNITY",
+    "category"   : "Node",
+}
+
+
+import bpy
+from bpy.types import Operator, Panel
 
 
 def get_active_tree(context):
@@ -72,32 +75,34 @@ class RN_PT_NodePanel(Panel):
     bl_category = "Arrange"
 
     def draw(self, context):
-        if context.active_node is not None:
-            layout = self.layout
-            node = context.space_data.node_tree.nodes.active
-            if node and node.select:
+        if context.active_node is None:
+            return
+        layout = self.layout
+        node = context.space_data.node_tree.nodes.active
+        if node and node.select:
+            self.draw_panel(layout)
+        else:
+            layout.label(text="(No Node Selected)", icon='GHOST_DISABLED')
 
-                row = layout.row(align=True)
-                row.label(text="Set Node Width:")
+    def draw_panel(self, layout):
+        row = layout.row(align=True)
+        row.label(text="Set Node Width:")
 
-                row = layout.row(align=True)
-                row.operator('node.button_140')
-                row.operator('node.button_240')
-                row.operator('node.button_340')
+        row = layout.row(align=True)
+        row.operator('node.button_140')
+        row.operator('node.button_240')
+        row.operator('node.button_340')
 
-                row = layout.row(align=True)
-                row.operator('node.button_440')
-                row.operator('node.button_540')
-                row.operator('node.button_640')
+        row = layout.row(align=True)
+        row.operator('node.button_440')
+        row.operator('node.button_540')
+        row.operator('node.button_640')
 
-                row = layout.row(align=True)
-                row.operator('node.button_700')
+        row = layout.row(align=True)
+        row.operator('node.button_700')
 
-                row = layout.row(align=True)
-                row.operator('node.button_toggle_hidden')
-
-            else:
-                layout.label(text="(No Node Selected)", icon='GHOST_DISABLED')
+        row = layout.row(align=True)
+        row.operator('node.button_toggle_hidden')
 
 
 class RN_OT__NodeButton140(Operator):

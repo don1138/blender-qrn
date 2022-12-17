@@ -106,8 +106,7 @@ class RN_PT_NodePanel(Panel):
 
 
 class RN_OT__NodeButton140(Operator):
-
-    'Set node width to 140'
+    """Set node width to 140"""
     bl_idname = 'node.button_140'
     bl_label = '140'
 
@@ -121,8 +120,7 @@ class RN_OT__NodeButton140(Operator):
 
 
 class RN_OT__NodeButton240(Operator):
-
-    'Set node width to 240'
+    """Set node width to 240"""
     bl_idname = 'node.button_240'
     bl_label = '240'
 
@@ -135,8 +133,7 @@ class RN_OT__NodeButton240(Operator):
 
 
 class RN_OT__NodeButton340(Operator):
-
-    'Set node width to 340'
+    """Set node width to 340"""
     bl_idname = 'node.button_340'
     bl_label = '340'
 
@@ -149,8 +146,7 @@ class RN_OT__NodeButton340(Operator):
 
 
 class RN_OT__NodeButton440(Operator):
-
-    'Set node width to 440'
+    """Set node width to 440"""
     bl_idname = 'node.button_440'
     bl_label = '440'
 
@@ -163,8 +159,7 @@ class RN_OT__NodeButton440(Operator):
 
 
 class RN_OT__NodeButton540(Operator):
-
-    'Set node width to 540'
+    """Set node width to 540"""
     bl_idname = 'node.button_540'
     bl_label = '540'
 
@@ -177,8 +172,7 @@ class RN_OT__NodeButton540(Operator):
 
 
 class RN_OT__NodeButton640(Operator):
-
-    'Set node width to 640'
+    """Set node width to 640"""
     bl_idname = 'node.button_640'
     bl_label = '640'
 
@@ -191,8 +185,7 @@ class RN_OT__NodeButton640(Operator):
 
 
 class RN_OT__NodeButton700(Operator):
-
-    'Set node width to 700'
+    """Set node width to 700"""
     bl_idname = 'node.button_700'
     bl_label = '700 (Max Width)'
 
@@ -205,8 +198,7 @@ class RN_OT__NodeButton700(Operator):
 
 
 class RN_OT__NodeButtonHideToggle(Operator):
-
-    'Toggle Hidden Node Sockets'
+    """Toggle Hidden Node Sockets"""
     bl_idname = 'node.button_toggle_hidden'
     bl_label = 'Toggle Hidden Sockets (⌃H)'
 

@@ -60,7 +60,6 @@ class CAMERA_SCG_overlays(bpy.types.Operator):
             self.show_golden(False, ob)
         return {'FINISHED'}
 
-    # TODO Rename this here and in `execute`
     def show_golden(self, arg0, ob):
         ob.show_composition_golden = arg0
         ob.show_composition_golden_tria_a = arg0
@@ -87,7 +86,6 @@ class CAMERA_SCH_overlays(bpy.types.Operator):
             self.show_harmony(False, ob)
         return {'FINISHED'}
 
-    # TODO Rename this here and in `execute`
     def show_harmony(self, arg0, ob):
         ob.show_composition_thirds = arg0
         ob.show_composition_harmony_tri_a = arg0

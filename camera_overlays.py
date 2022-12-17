@@ -1,17 +1,19 @@
-import bpy
 bl_info = {
-    "name": "Camera Overlays",
+    "name"       : "Camera Overlays",
     "description": "Show/Hide Harmony and Golden Ratios and Triangles",
-    "author": "Don Schnitzius",
-    "version": (1, 2, 1),
-    "blender": (2, 80, 0),
-    "location": "Context Menu (Right Mouse Button)",
-    "warning": "",
-    "doc_url": "https://github.com/don1138/blender-qle",
+    "author"     : "Don Schnitzius",
+    "version"    : (1, 2, 2),
+    "blender"    : (2, 80, 0),
+    "location"   : "Context Menu (Right Mouse Button)",
+    "warning"    : "",
+    "doc_url"    : "https://github.com/don1138/blender-qle",
     "tracker_url": "",
-    "support": "COMMUNITY",
-    "category": "Camera",
+    "support"    : "COMMUNITY",
+    "category"   : "Camera",
 }
+
+
+import bpy
 
 
 class CAMERA_SCC_overlays(bpy.types.Operator):
@@ -53,15 +55,16 @@ class CAMERA_SCG_overlays(bpy.types.Operator):
         ob = bpy.context.scene.camera.data
 
         if ob.show_composition_golden == False:
-            ob.show_composition_golden = True
-            ob.show_composition_golden_tria_a = True
-            ob.show_composition_golden_tria_b = True
+            self.show_golden(True, ob)
         else:
-            ob.show_composition_golden = False
-            ob.show_composition_golden_tria_a = False
-            ob.show_composition_golden_tria_b = False
-
+            self.show_golden(False, ob)
         return {'FINISHED'}
+
+    # TODO Rename this here and in `execute`
+    def show_golden(self, arg0, ob):
+        ob.show_composition_golden = arg0
+        ob.show_composition_golden_tria_a = arg0
+        ob.show_composition_golden_tria_b = arg0
 
 
 class CAMERA_SCH_overlays(bpy.types.Operator):
@@ -79,15 +82,16 @@ class CAMERA_SCH_overlays(bpy.types.Operator):
         ob = bpy.context.scene.camera.data
 
         if ob.show_composition_thirds == False:
-            ob.show_composition_thirds = True
-            ob.show_composition_harmony_tri_a = True
-            ob.show_composition_harmony_tri_b = True
+            self.show_harmony(True, ob)
         else:
-            ob.show_composition_thirds = False
-            ob.show_composition_harmony_tri_a = False
-            ob.show_composition_harmony_tri_b = False
-
+            self.show_harmony(False, ob)
         return {'FINISHED'}
+
+    # TODO Rename this here and in `execute`
+    def show_harmony(self, arg0, ob):
+        ob.show_composition_thirds = arg0
+        ob.show_composition_harmony_tri_a = arg0
+        ob.show_composition_harmony_tri_b = arg0
 
 
 class CAMERA_SP_passepartout(bpy.types.Operator):

@@ -20,13 +20,17 @@
 """
 VERSION HISTORY
 
-1.2.1 - Code refactoring
-      - PEP8 formatting
+1.3.0 - 01/31/23 
+    - Add new width: 200
 
-1.2 - 18/03/22
+1.2.1 - 12/17/22 
+    - Code refactoring
+    - PEP8 formatting
+
+1.2.0 - 18/03/22
     - Moved label "Set Node Width" inside IF statement
 
-1.1 - 20/09/22
+1.1.0 - 20/09/22
     - Changed scope from Active to All Selected
     - Added Button for Toggle Hidden Sockets
 
@@ -38,7 +42,7 @@ VERSION HISTORY
 bl_info = {
     "name"       : "QRN (Quick Resize Node)",
     "author"     : "Don Schnitzius",
-    "version"    : (1, 2, 1),
+    "version"    : (1, 3, 0),
     "blender"    : (2, 80, 0),
     "location"   : "Node Editor > Sidebar > Arrange",
     "description": "Assign a Fixed Width to Selected Nodes",
@@ -99,6 +103,8 @@ class RN_PT_NodePanel(Panel):
         row.operator('node.button_640')
 
         row = layout.row(align=True)
+        row.operator('node.button_200')
+        row.scale_x = 2.0
         row.operator('node.button_700')
 
         row = layout.row(align=True)
@@ -197,6 +203,19 @@ class RN_OT__NodeButton700(Operator):
         return {'FINISHED'}
 
 
+class RN_OT__NodeButton200(Operator):
+    """Set node width to 200"""
+    bl_idname = 'node.button_200'
+    bl_label = '200'
+
+    def execute(self, context):
+        nodes, links = get_nodes_links(context)
+        for node in nodes:
+            if node.select == True:
+                node.width = 200
+        return {'FINISHED'}
+
+
 class RN_OT__NodeButtonHideToggle(Operator):
     """Toggle Hidden Node Sockets"""
     bl_idname = 'node.button_toggle_hidden'
@@ -215,6 +234,7 @@ classes = [
     RN_OT__NodeButton440,
     RN_OT__NodeButton540,
     RN_OT__NodeButton640,
+    RN_OT__NodeButton200,
     RN_OT__NodeButton700,
     RN_OT__NodeButtonHideToggle
 ]

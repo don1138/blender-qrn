@@ -21,6 +21,7 @@ Select one or more Nodes to activate the buttons.
   + **440**
   + **550**
   + **640**
+  + **200**
   + **700 (Max Width)** - The least practical option, so obviously it deserves the largest button. 😊
 
 ### 👉 Toggle Hidden Sockets
@@ -35,16 +36,6 @@ In **Blender 2.83**, when adding a **Node Wrangler Texture Setup**, the **Mappin
 But no matter – The buttons are still a convenient shortcut for tweaking Node widths and soothing my mild OCD.
 
 This addon pairs well with 3DSinghVFX's work-in-progress [**Align Nodes**](https://github.com/3DSinghVFX/align_nodes).
-
-## Version History
-
-**1.2**
-  + Moved *'Set Node Width'* label inside `If` statement
-
-**1.1**
-  + Changed scope from **Active** to **All Selected**
-  + Added options for **540**, **640**, and **700**
-  + Added Button for **Toggle Hidden Sockets**
 
 <br><br>
 

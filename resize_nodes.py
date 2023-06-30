@@ -20,30 +20,35 @@
 """
 VERSION HISTORY
 
+1.4.0 - 06/60/23 
+  - Bender 3.6.0 Compatability
+    - Remove 440, 540, 640
+    - Replace 700 with 400
+
 1.3.0 - 01/31/23 
-    - Add new width: 200
+  - Add new width: 200
 
 1.2.1 - 12/17/22 
-    - Code refactoring
-    - PEP8 formatting
+  - Code refactoring
+  - PEP8 formatting
 
 1.2.0 - 18/03/22
-    - Moved label "Set Node Width" inside IF statement
+  - Moved label "Set Node Width" inside IF statement
 
 1.1.0 - 20/09/22
-    - Changed scope from Active to All Selected
-    - Added Button for Toggle Hidden Sockets
+  - Changed scope from Active to All Selected
+  - Added Button for Toggle Hidden Sockets
 
 1.0 - 20/09/22
-    - Create Addon
+  - Create Addon
 """
 
 
 bl_info = {
     "name"       : "QRN (Quick Resize Node)",
     "author"     : "Don Schnitzius",
-    "version"    : (1, 3, 0),
-    "blender"    : (2, 80, 0),
+    "version"    : (1, 4, 0),
+    "blender"    : (3, 6, 0),
     "location"   : "Node Editor > Sidebar > Arrange",
     "description": "Assign a Fixed Width to Selected Nodes",
     "warning"    : "",
@@ -98,14 +103,9 @@ class RN_PT_NodePanel(Panel):
         row.operator('node.button_340')
 
         row = layout.row(align=True)
-        row.operator('node.button_440')
-        row.operator('node.button_540')
-        row.operator('node.button_640')
-
-        row = layout.row(align=True)
         row.operator('node.button_200')
         row.scale_x = 2.0
-        row.operator('node.button_700')
+        row.operator('node.button_400')
 
         row = layout.row(align=True)
         row.operator('node.button_toggle_hidden')
@@ -151,55 +151,16 @@ class RN_OT__NodeButton340(Operator):
         return {'FINISHED'}
 
 
-class RN_OT__NodeButton440(Operator):
-    """Set node width to 440"""
-    bl_idname = 'node.button_440'
-    bl_label = '440'
+class RN_OT__NodeButton400(Operator):
+    """Set node width to 400"""
+    bl_idname = 'node.button_400'
+    bl_label = '400 (Max Width)'
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
         for node in nodes:
             if node.select == True:
-                node.width = 440
-        return {'FINISHED'}
-
-
-class RN_OT__NodeButton540(Operator):
-    """Set node width to 540"""
-    bl_idname = 'node.button_540'
-    bl_label = '540'
-
-    def execute(self, context):
-        nodes, links = get_nodes_links(context)
-        for node in nodes:
-            if node.select == True:
-                node.width = 540
-        return {'FINISHED'}
-
-
-class RN_OT__NodeButton640(Operator):
-    """Set node width to 640"""
-    bl_idname = 'node.button_640'
-    bl_label = '640'
-
-    def execute(self, context):
-        nodes, links = get_nodes_links(context)
-        for node in nodes:
-            if node.select == True:
-                node.width = 640
-        return {'FINISHED'}
-
-
-class RN_OT__NodeButton700(Operator):
-    """Set node width to 700"""
-    bl_idname = 'node.button_700'
-    bl_label = '700 (Max Width)'
-
-    def execute(self, context):
-        nodes, links = get_nodes_links(context)
-        for node in nodes:
-            if node.select == True:
-                node.width = 700
+                node.width = 400
         return {'FINISHED'}
 
 
@@ -229,13 +190,10 @@ class RN_OT__NodeButtonHideToggle(Operator):
 classes = [
     RN_PT_NodePanel,
     RN_OT__NodeButton140,
+    RN_OT__NodeButton200,
     RN_OT__NodeButton240,
     RN_OT__NodeButton340,
-    RN_OT__NodeButton440,
-    RN_OT__NodeButton540,
-    RN_OT__NodeButton640,
-    RN_OT__NodeButton200,
-    RN_OT__NodeButton700,
+    RN_OT__NodeButton400,
     RN_OT__NodeButtonHideToggle
 ]
 

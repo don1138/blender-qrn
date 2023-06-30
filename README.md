@@ -14,7 +14,15 @@ This addon creates a panel named **Resize Node** under ``Shader Editor > Sidebar
 
 Select one or more Nodes to activate the buttons.
 
-### 👉 Fixed Widths
+### 👉 Fixed Widths - Version 1.4.0
+Blender 3.6.0 locks the maximum width of nodes to 400, so the settings have been updated accordingly.
+  + **140**
+  + **240**
+  + **340**
+  + **200**
+  + **400 (Max Width)** - The least practical option, so obviously it deserves the largest button. 😊
+
+### 👉 Fixed Widths - Version 1.3.0
   + **140**
   + **240**
   + **340**

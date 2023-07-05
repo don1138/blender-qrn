@@ -2,7 +2,7 @@
 
 **Assign a Fixed Width to Selected Nodes.**
 
-![Blender QRN Screenshot](https://github.com/don1138/blender-qrn/blob/master/blender-qrn.jpg)
+![Blender QRN 1.4.0](https://github.com/don1138/blender-qrn/blob/master/blender-qrn-140.jpg)
 
 ## Installation
 
@@ -21,6 +21,8 @@ Blender 3.6.0 locks the maximum width of nodes to 400, so the settings have been
   + **340**
   + **200**
   + **400 (Max Width)** - The least practical option, so obviously it deserves the largest button. 😊
+
+![Blender QRN 1.3.0](https://github.com/don1138/blender-qrn/blob/master/blender-qrn-130.jpg)
 
 ### 👉 Fixed Widths - Version 1.3.0
   + **140**

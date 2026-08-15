@@ -17,7 +17,7 @@ Requires Blender 4.5 or newer. Tested with Blender 4.5 LTS and 5.2 LTS.
 
 This extension creates a **Resize Nodes** panel under **Sidebar > Arrange** in the Shader Editor, Texture Node Editor, Geometry Node Editor, and Compositor.
 
-Select one or more Nodes to activate the buttons.
+Select one or more nodes to activate the width controls.
 
 ### 👉 Fixed Widths
 

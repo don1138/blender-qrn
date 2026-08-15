@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Added node width option `200`
 
-## 1.2.1
+## 1.2.1 - 2022-12-17
 
 ### Changed
 

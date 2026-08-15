@@ -6,11 +6,16 @@
 
 ## Installation
 
-Download the latest ZIP from **Releases**, or `resize_nodes.py` from repository, and install addon.
+1. Download the latest Extension ZIP from **Releases**. Do not extract it.
+2. In Blender, open **Edit > Preferences > Get Extensions**.
+3. Open the menu in the upper-right corner and choose **Install from Disk**.
+4. Select the downloaded ZIP.
+
+Requires Blender 4.5 or newer. Tested with Blender 4.5 LTS and 5.2 LTS.
 
 ## Usage
 
-This addon creates a panel named **Resize Node** under ``Shader Editor > Sidebar > Arrange``.
+This extension creates a **Resize Nodes** panel under **Sidebar > Arrange** in the Shader Editor, Texture Node Editor, Geometry Node Editor, and Compositor.
 
 Select one or more Nodes to activate the buttons.
 
@@ -26,7 +31,7 @@ Select one or more Nodes to activate the buttons.
 
 ### 👉 Toggle Hidden Sockets
 
-+ Node height get maximized to show all sockets, or minimized to show only used/essential sockets.
++ Shows or hides unconnected sockets on the selected nodes.
 
 ## Backstory
 

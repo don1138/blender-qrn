@@ -1,16 +1,4 @@
-# SPDX-License-Identifier: GPL-2.0-or-later
-
-bl_info = {
-    "name": "QRN (Quick Resize Nodes)",
-    "author": "Don Schnitzius",
-    "version": (1, 5, 0),
-    "blender": (4, 5, 0),
-    "location": "Node Editor > Sidebar > Arrange",
-    "description": "Assign a fixed width to selected nodes",
-    "doc_url": "https://github.com/don1138/blender-qrn",
-    "support": "COMMUNITY",
-    "category": "Node",
-}
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 import bpy
 from bpy.props import IntProperty

@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-08-15
+
+### Added
+
+- Added support for Blender 4.5 LTS and Blender 5.2 LTS
+- Added Blender Extension packaging
+
+### Changed
+
+- Updated the fixed-width presets to `140`, `240`, `340`, `440`, `540`, `640`, and `700`
+- Consolidated the fixed-width actions into one namespaced operator
+- Updated the panel layout to emphasize the most-used widths
+
+### Removed
+
+- Removed the `200` and `400` fixed-width presets
+
 ## [1.4.0] - 2023-06-30
 
 ### Changed
@@ -44,6 +61,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Initial release
 - Added support for assigning a fixed width to the active node in the Shader Editor
 
+[1.5.0]: https://github.com/don1138/blender-qrn/releases/tag/v1.5.0
 [1.4.0]: https://github.com/don1138/blender-qrn/releases/tag/v1.4.0
 [1.3.0]: https://github.com/don1138/blender-qrn/releases/tag/1.3.0
 [1.2.0]: https://github.com/don1138/blender-qrn/releases/tag/1.2

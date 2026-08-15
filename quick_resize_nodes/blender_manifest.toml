@@ -1,0 +1,17 @@
+schema_version = "1.0.0"
+
+id = "quick_resize_nodes"
+version = "1.5.0"
+name = "QRN (Quick Resize Nodes)"
+tagline = "Set selected nodes to consistent widths"
+maintainer = "Don Schnitzius"
+type = "add-on"
+
+website = "https://github.com/don1138/blender-qrn"
+tags = ["Node"]
+
+blender_version_min = "4.5.0"
+
+license = [
+    "SPDX:GPL-3.0-or-later",
+]
